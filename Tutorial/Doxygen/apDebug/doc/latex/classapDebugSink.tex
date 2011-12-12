@@ -1,0 +1,87 @@
+\hypertarget{classapDebugSink}{
+\section{apDebugSink Class Reference}
+\label{classapDebugSink}\index{apDebugSink@{apDebugSink}}
+}
+
+
+{\ttfamily \#include $<$apDebugSink.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classapDebugSink_a6534c269975f6276f4754ba6316232ba}{write} (const std::string str)=0
+\item 
+virtual void \hyperlink{classapDebugSink_a3e367099f19e5edc7a125914653592d1}{write} (int c)=0
+\item 
+virtual void \hyperlink{classapDebugSink_a7d7ff2d4974665a43a996ab5d245de6b}{flush} ()
+\item 
+virtual std::string \hyperlink{classapDebugSink_aae1dd83c95adcdc4d7ede36ae5c79287}{header} ()
+\item 
+void \hyperlink{classapDebugSink_a5f4db9dc661bfb26196f0d08b8f58f39}{showHeader} (bool state)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std::string \hyperlink{classapDebugSink_a0481b649618d6e167565ed0f7d36f27d}{standardHeader} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classapDebugSink_a8629a797b6533d03aa7fdb81c124a64c}{enableHeader\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classapDebugSink}{apDebugSink} 클래스는 디버깅 스트림을 위한 인터페이스입니다. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classapDebugSink_a7d7ff2d4974665a43a996ab5d245de6b}{
+\index{apDebugSink@{apDebugSink}!flush@{flush}}
+\index{flush@{flush}!apDebugSink@{apDebugSink}}
+\subsubsection[{flush}]{\setlength{\rightskip}{0pt plus 5cm}virtual void apDebugSink::flush ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classapDebugSink_a7d7ff2d4974665a43a996ab5d245de6b}
+저장된 모든 정보를 내보냅니다. \hypertarget{classapDebugSink_aae1dd83c95adcdc4d7ede36ae5c79287}{
+\index{apDebugSink@{apDebugSink}!header@{header}}
+\index{header@{header}!apDebugSink@{apDebugSink}}
+\subsubsection[{header}]{\setlength{\rightskip}{0pt plus 5cm}virtual std::string apDebugSink::header ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classapDebugSink_aae1dd83c95adcdc4d7ede36ae5c79287}
+기본적으로 헤더들이 사용 가능해졌을 때 표준 헤더를 내보냅니다. \hypertarget{classapDebugSink_a5f4db9dc661bfb26196f0d08b8f58f39}{
+\index{apDebugSink@{apDebugSink}!showHeader@{showHeader}}
+\index{showHeader@{showHeader}!apDebugSink@{apDebugSink}}
+\subsubsection[{showHeader}]{\setlength{\rightskip}{0pt plus 5cm}void apDebugSink::showHeader (bool {\em state})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classapDebugSink_a5f4db9dc661bfb26196f0d08b8f58f39}
+헤더를 기록할 것인지를 정합니다. 
+\begin{DoxyParams}{Parameters}
+\item[{\em state}]디버깅 스트림 출력 시 헤더 출력 여부 설정. \end{DoxyParams}
+\hypertarget{classapDebugSink_a0481b649618d6e167565ed0f7d36f27d}{
+\index{apDebugSink@{apDebugSink}!standardHeader@{standardHeader}}
+\index{standardHeader@{standardHeader}!apDebugSink@{apDebugSink}}
+\subsubsection[{standardHeader}]{\setlength{\rightskip}{0pt plus 5cm}std::string apDebugSink::standardHeader ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classapDebugSink_a0481b649618d6e167565ed0f7d36f27d}
+\hyperlink{classapDebugSink_aae1dd83c95adcdc4d7ede36ae5c79287}{header()}를 재정의하지 않았을do 때 기본적인 헤더를 제공하는 함수입니다. \begin{DoxyReturn}{Returns}
+std::string 현재 시간을 반환. 
+\end{DoxyReturn}
+\hypertarget{classapDebugSink_a3e367099f19e5edc7a125914653592d1}{
+\index{apDebugSink@{apDebugSink}!write@{write}}
+\index{write@{write}!apDebugSink@{apDebugSink}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}virtual void apDebugSink::write (int {\em c})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classapDebugSink_a3e367099f19e5edc7a125914653592d1}
+디버깅 싱크에 문자를 씁니다. \hypertarget{classapDebugSink_a6534c269975f6276f4754ba6316232ba}{
+\index{apDebugSink@{apDebugSink}!write@{write}}
+\index{write@{write}!apDebugSink@{apDebugSink}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}virtual void apDebugSink::write (const std::string {\em str})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classapDebugSink_a6534c269975f6276f4754ba6316232ba}
+디버깅 싱크에 문자열을 씁니다. 
+
+\subsection{Member Data Documentation}
+\hypertarget{classapDebugSink_a8629a797b6533d03aa7fdb81c124a64c}{
+\index{apDebugSink@{apDebugSink}!enableHeader\_\-@{enableHeader\_\-}}
+\index{enableHeader\_\-@{enableHeader\_\-}!apDebugSink@{apDebugSink}}
+\subsubsection[{enableHeader\_\-}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf apDebugSink::enableHeader\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classapDebugSink_a8629a797b6533d03aa7fdb81c124a64c}
+true이면 버퍼를 flush 할 때 헤더를 같이 기록합니다. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{apDebugSink_8h}{apDebugSink.h}\item 
+apDebugSink.cpp\end{DoxyCompactItemize}
