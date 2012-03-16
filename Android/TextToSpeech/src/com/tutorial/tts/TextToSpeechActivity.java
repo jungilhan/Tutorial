@@ -2,10 +2,10 @@ package com.tutorial.tts;
 
 import java.util.*;
 
+import android.*;
 import android.app.*;
 import android.os.*;
 import android.speech.tts.*;
-import android.util.*;
 import android.view.*;
 import android.widget.*;
 
@@ -31,12 +31,12 @@ public class TextToSpeechActivity extends Activity {
         mTextToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             public void onInit(int status) {
                  if (status == TextToSpeech.SUCCESS) {
-                     Log.d("TextToSpeech", "Init success");
                      int result = mTextToSpeech.setLanguage(Locale.US);
                      if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED)
                          Toast.makeText(TextToSpeechActivity.this, "TTS engine does not support the English", Toast.LENGTH_SHORT).show();
                      else 
                          speakButton.setEnabled(true);
+                     
                 } else {
                     Toast.makeText(TextToSpeechActivity.this, "Could not initialize TextToSpeech", Toast.LENGTH_SHORT).show();
                 }
