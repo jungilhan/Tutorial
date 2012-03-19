@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wid>
+	<header>
+		<title>서울,경기도 육상주간예보</title>
+		<tm>201203191800</tm>
+		<wf><![CDATA[서쪽에서 다가오는 기압골의 영향으로 차차 흐려져 22일 후반에 비가 시작되어 23일 전반까지 비가 오겠습니다.<br />그 밖의 날은 고기압의 가장자리에서 가끔 구름많겠습니다. <br /><br />기온은 평년(최저기온: 0~3도, 최고기온: 11~14도)보다 조금 낮겠습니다.  <br /><br />강수량은 평년(강수량 : 1~2mm)보다 많겠습니다.]]></wf>
+	</header>
+	<body>
+		<location city="11B10101" province="11B00000">
+				<province code="11B00000">서울ㆍ인천ㆍ경기도</province>
+				<city code="11B10101">서울</city>
+				
+				<data>
+					<numEf>2</numEf>
+					<tmEf>2012-03-21</tmEf>
+					<wf>맑음</wf>
+					<tmn>-1</tmn>
+					<tmx>12</tmx>
+					<reliability>높음</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>3</numEf>
+					<tmEf>2012-03-22</tmEf>
+					<wf>구름많고 비</wf>
+					<tmn>3</tmn>
+					<tmx>9</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>4</numEf>
+					<tmEf>2012-03-23</tmEf>
+					<wf>흐리고 비</wf>
+					<tmn>3</tmn>
+					<tmx>7</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>5</numEf>
+					<tmEf>2012-03-24</tmEf>
+					<wf>구름많음</wf>
+					<tmn>2</tmn>
+					<tmx>9</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>6</numEf>
+					<tmEf>2012-03-25</tmEf>
+					<wf>맑음</wf>
+					<tmn>0</tmn>
+					<tmx>10</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>7</numEf>
+					<tmEf>2012-03-26</tmEf>
+					<wf>구름많음</wf>
+					<tmn>2</tmn>
+					<tmx>11</tmx>
+					<reliability>낮음</reliability>
+				</data>
+
+
+		</location>
+
+		<location city="11B20201" province="11B00000">
+				<province code="11B00000">서울ㆍ인천ㆍ경기도</province>
+				<city code="11B20201">인천</city>
+				
+				<data>
+					<numEf>2</numEf>
+					<tmEf>2012-03-21</tmEf>
+					<wf>맑음</wf>
+					<tmn>0</tmn>
+					<tmx>11</tmx>
+					<reliability>높음</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>3</numEf>
+					<tmEf>2012-03-22</tmEf>
+					<wf>구름많고 비</wf>
+					<tmn>3</tmn>
+					<tmx>9</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>4</numEf>
+					<tmEf>2012-03-23</tmEf>
+					<wf>흐리고 비</wf>
+					<tmn>4</tmn>
+					<tmx>8</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>5</numEf>
+					<tmEf>2012-03-24</tmEf>
+					<wf>구름많음</wf>
+					<tmn>3</tmn>
+					<tmx>8</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>6</numEf>
+					<tmEf>2012-03-25</tmEf>
+					<wf>맑음</wf>
+					<tmn>1</tmn>
+					<tmx>9</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>7</numEf>
+					<tmEf>2012-03-26</tmEf>
+					<wf>구름많음</wf>
+					<tmn>3</tmn>
+					<tmx>10</tmx>
+					<reliability>낮음</reliability>
+				</data>
+
+
+		</location>
+
+		<location city="11B20601" province="11B00000">
+				<province code="11B00000">서울ㆍ인천ㆍ경기도</province>
+				<city code="11B20601">수원</city>
+				
+				<data>
+					<numEf>2</numEf>
+					<tmEf>2012-03-21</tmEf>
+					<wf>맑음</wf>
+					<tmn>-2</tmn>
+					<tmx>12</tmx>
+					<reliability>높음</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>3</numEf>
+					<tmEf>2012-03-22</tmEf>
+					<wf>구름많고 비</wf>
+					<tmn>3</tmn>
+					<tmx>9</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>4</numEf>
+					<tmEf>2012-03-23</tmEf>
+					<wf>흐리고 비</wf>
+					<tmn>3</tmn>
+					<tmx>7</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>5</numEf>
+					<tmEf>2012-03-24</tmEf>
+					<wf>구름많음</wf>
+					<tmn>2</tmn>
+					<tmx>8</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>6</numEf>
+					<tmEf>2012-03-25</tmEf>
+					<wf>맑음</wf>
+					<tmn>0</tmn>
+					<tmx>10</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>7</numEf>
+					<tmEf>2012-03-26</tmEf>
+					<wf>구름많음</wf>
+					<tmn>2</tmn>
+					<tmx>11</tmx>
+					<reliability>낮음</reliability>
+				</data>
+
+
+		</location>
+
+		<location city="11B20305" province="11B00000">
+				<province code="11B00000">서울ㆍ인천ㆍ경기도</province>
+				<city code="11B20305">문산</city>
+				
+				<data>
+					<numEf>2</numEf>
+					<tmEf>2012-03-21</tmEf>
+					<wf>맑음</wf>
+					<tmn>-4</tmn>
+					<tmx>13</tmx>
+					<reliability>높음</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>3</numEf>
+					<tmEf>2012-03-22</tmEf>
+					<wf>구름많고 비</wf>
+					<tmn>1</tmn>
+					<tmx>9</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>4</numEf>
+					<tmEf>2012-03-23</tmEf>
+					<wf>흐리고 비</wf>
+					<tmn>3</tmn>
+					<tmx>6</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>5</numEf>
+					<tmEf>2012-03-24</tmEf>
+					<wf>구름많음</wf>
+					<tmn>-1</tmn>
+					<tmx>7</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>6</numEf>
+					<tmEf>2012-03-25</tmEf>
+					<wf>맑음</wf>
+					<tmn>-3</tmn>
+					<tmx>10</tmx>
+					<reliability>보통</reliability>
+				</data>
+
+				
+				<data>
+					<numEf>7</numEf>
+					<tmEf>2012-03-26</tmEf>
+					<wf>구름많음</wf>
+					<tmn>-3</tmn>
+					<tmx>12</tmx>
+					<reliability>낮음</reliability>
+				</data>
+		</location>
+	</body>
+</wid>	
+		
