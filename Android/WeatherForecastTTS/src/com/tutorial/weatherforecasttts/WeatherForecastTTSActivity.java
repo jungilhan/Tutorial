@@ -32,6 +32,7 @@ public class WeatherForecastTTSActivity extends Activity {
     private Handler mHTTPRequestHandler;
     private ProgressDialog mProgressDialog;
     private TextToSpeech mTextToSpeech;
+    private final int MSG_ON_HTTP_REQUEST_COMPLETE = 0;
     
     /** Called when the activity is first created. */
     @Override
@@ -78,26 +79,30 @@ public class WeatherForecastTTSActivity extends Activity {
         mHTTPRequestHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                mProgressDialog.dismiss();
+                switch (msg.what) {
+                case MSG_ON_HTTP_REQUEST_COMPLETE:
+                    mProgressDialog.dismiss();
 
-                try {
-                    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                    DocumentBuilder builder = factory.newDocumentBuilder();
-                    InputStream istream = new ByteArrayInputStream(mHTTPRequestThread.mBuffer.getBytes("utf-8"));
-                    Document doc = builder.parse(istream);
-                    
-                    Element root = doc.getDocumentElement();
-                    String location = retrieveLocation(root);
-                    String forecast = retrieveForecast(root);
-                    
-                    TextView resultView = (TextView)findViewById(R.id.result_textview);
-                    resultView.setText(location + ".\n\n" + forecast);
-                    
-                    speakButton.setEnabled(true);
-                    
-                } catch (Exception e) {
-                    Toast.makeText(WeatherForecastTTSActivity.this, "[Handler Exception] " + e.getMessage(), Toast.LENGTH_LONG).show();
-                    speakButton.setEnabled(false);
+                    try {
+                        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                        DocumentBuilder builder = factory.newDocumentBuilder();
+                        InputStream istream = new ByteArrayInputStream(((String)msg.obj).getBytes("utf-8"));
+                        Document doc = builder.parse(istream);
+                        
+                        Element root = doc.getDocumentElement();
+                        String location = retrieveLocation(root);
+                        String forecast = retrieveForecast(root);
+                        
+                        TextView resultView = (TextView)findViewById(R.id.result_textview);
+                        resultView.setText(location + ".\n\n" + forecast);
+                        
+                        speakButton.setEnabled(true);
+                        
+                    } catch (Exception e) {
+                        Toast.makeText(WeatherForecastTTSActivity.this, "[Handler Exception] " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        speakButton.setEnabled(false);
+                    }
+                    break;
                 }
             }
          };
@@ -120,8 +125,8 @@ public class WeatherForecastTTSActivity extends Activity {
     }
     
     class HTTPRequestThread extends Thread {
-        String mAddr;
-        String mBuffer;
+        private final String mAddr;
+        private String mBuffer;
         
         HTTPRequestThread(String addr) {
             mAddr = addr;
@@ -152,7 +157,9 @@ public class WeatherForecastTTSActivity extends Activity {
                 Toast.makeText(WeatherForecastTTSActivity.this, "[HTTP Exception] " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
             
-            mHTTPRequestHandler.sendEmptyMessage(0);
+            mHTTPRequestHandler.sendMessage(Message.obtain(mHTTPRequestHandler, 
+                                                           MSG_ON_HTTP_REQUEST_COMPLETE, 
+                                                           mBuffer));
         }
     }
 }
