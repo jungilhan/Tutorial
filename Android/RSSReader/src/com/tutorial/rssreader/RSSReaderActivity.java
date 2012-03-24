@@ -1,9 +1,8 @@
 package com.tutorial.rssreader;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -14,6 +13,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -49,6 +49,9 @@ public class RSSReaderActivity extends Activity {
                     return;
                 }
                 
+                if (!url.toLowerCase().contains("http://"))
+                    url = "http://" + url;
+                
                 mProgressDialog = ProgressDialog.show(RSSReaderActivity.this, "잠시만 기다려주세요!", "RSS 정보를 내려받는 중입니다.");
                 
                 mHTTPRequestThread = new HTTPRequestThread(url);
@@ -66,15 +69,16 @@ public class RSSReaderActivity extends Activity {
                     try {
                         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                         DocumentBuilder builder = factory.newDocumentBuilder();
-                        InputStream istream = new ByteArrayInputStream(((String)msg.obj).getBytes("utf-8"));
-                        Document doc = builder.parse(istream);
+                        Document doc = builder.parse(new InputSource(new StringReader((String)msg.obj)));
                         
                         Element root = doc.getDocumentElement();
-                        String rssTitle = RSSTitle(root);
-                        String articleTitle = ArticleTitle(root);
+                        String rssTitle = rssTitle(root);
+                        String articleTitle = articleTitle(root);
+                        String articleLink = articleLink(root);
+                        String articlePubData = articlePubData(root);
                         
-                        TextView rssView = (TextView)findViewById(R.id.rss_view);
-                        rssView.setText(rssView.getText() + rssTitle + "\n\n" + articleTitle + "\n\n");
+                        TextView rssView = (TextView)findViewById(R.id.title_view);
+                        rssView.setText(rssTitle + "\n\n" + articleTitle + "\n\n" + articleLink + "\n\n" + articlePubData);
                         
                     } catch (Exception e) {
                         Toast.makeText(RSSReaderActivity.this, "[Handler Exception] " + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -85,18 +89,56 @@ public class RSSReaderActivity extends Activity {
          };
     }
     
-    private String RSSTitle(Element root) {
-        Node title = root.getElementsByTagName("title").item(0);
-        return title.getFirstChild().getNodeValue();
+    private String rssTitle(Element root) {
+        Element e = (Element)root.getElementsByTagName("title").item(0);
+        return getElementValue(e);
     }
     
-    private String ArticleTitle(Element root) {
+    private String articleTitle(Element root) {
         String titles = new String();
         NodeList item = root.getElementsByTagName("item");
         for (int index = 0; index < item.getLength(); index++) {
-            titles += ((Element)item.item(index)).getElementsByTagName("title").item(0).getFirstChild().getNodeValue() + "\n";
+            Element e = (Element)((Element)item.item(index)).getElementsByTagName("title").item(0);
+            titles += "[" + index + "] " + getElementValue(e) + "\n";
         }
         return titles;
+    }
+    
+    private String articleLink(Element root) {
+        String links = new String();
+        NodeList item = root.getElementsByTagName("item");
+        for (int index = 0; index < item.getLength(); index++) {
+            Element e = (Element)((Element)item.item(index)).getElementsByTagName("link").item(0);
+            links += "[" + index + "] " + getElementValue(e) + "\n";
+        }
+        
+        return links;
+    }
+    
+    private String articlePubData(Element root) {
+        String pubDatas = new String();
+        NodeList item = root.getElementsByTagName("item");
+        for (int index = 0; index < item.getLength(); index++) {
+            Element e = (Element)((Element)item.item(index)).getElementsByTagName("pubDate").item(0);
+            pubDatas += "[" + index + "] " + getElementValue(e) + "\n";
+        }
+        
+        return pubDatas;
+    }
+    
+    private String getElementValue(Element e) {
+        if (e == null)
+            return "";
+
+        StringBuilder stringBuilder = new StringBuilder();
+          
+        Node node = e.getFirstChild();
+        while (node != null) {
+            stringBuilder.append(node.getNodeValue());
+            node = node.getNextSibling();
+        }
+        
+        return stringBuilder.toString();
     }
     
     class HTTPRequestThread extends Thread {
@@ -121,8 +163,6 @@ public class RSSReaderActivity extends Activity {
                         for (;;) {
                             String line = bufferedReader.readLine();
                             if (line == null) break;
-                            line = line.replace("&quot;", "\"");
-                            line = line.replace("&apos;", "'");
                             html.append(line);
                         }
                         bufferedReader.close();
