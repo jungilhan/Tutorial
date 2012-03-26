@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, TimeSliderActivity!</string>
+    <string name="app_name">TimeSlider</string>
+    <string name="dateSliderTitle">Selected date</string>
+</resources>

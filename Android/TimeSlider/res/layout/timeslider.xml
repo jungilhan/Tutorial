@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.googlecode.android.widgets.DateSlider.SliderContainer xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.tutorial.timeslider"
+    android:id="@+id/dateSliderContainer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <com.googlecode.android.widgets.DateSlider.ScrollLayout
+        style="@style/Scroller"
+        app:childWidth="90dp"
+        app:labelerClass="com.googlecode.android.widgets.DateSlider.labeler.HourLabeler"
+        app:labelerFormat="%tk" />
+
+    <com.googlecode.android.widgets.DateSlider.ScrollLayout
+        style="@style/Scroller"
+        app:childWidth="45dp"
+        app:labelerClass="com.googlecode.android.widgets.DateSlider.labeler.MinuteLabeler"
+        app:labelerFormat="%tM" />
+
+    <include layout="@layout/dialogbuttons" />
+
+</com.googlecode.android.widgets.DateSlider.SliderContainer>
