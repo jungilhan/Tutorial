@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/get_provider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get providers" />
+
+    <Button
+        android:id="@+id/get_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get location" />
+
+    <EditText
+        android:id="@+id/console"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:ems="10"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
+
+</LinearLayout>
